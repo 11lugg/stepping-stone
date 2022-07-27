@@ -19,37 +19,26 @@ class App extends Component {
     fetch(apiUrl)
       .then((response) => response.json())
       .then((users) =>
-        this.setState(
-          () => {
-            return { monsters: users, filteredMonsters: users };
-          },
-          () => {
-            console.log(this.state);
-          }
-        )
+        this.setState(() => {
+          return { monsters: users, filteredMonsters: users };
+        })
       );
   }
 
   handleSearch = (e) => {
     const inputValue = e.target.value.toLocaleLowerCase();
 
-    this.setState(
-      () => {
-        return { inputValue };
-      },
-      () => {}
-    );
+    this.setState(() => {
+      return { inputValue };
+    });
 
     const filteredArray = this.state.monsters.filter((monster) => {
       return monster.name.toLocaleLowerCase().includes(inputValue);
     });
 
-    this.setState(
-      () => {
-        return { filteredMonsters: filteredArray };
-      },
-      () => {}
-    );
+    this.setState(() => {
+      return { filteredMonsters: filteredArray };
+    });
   };
 
   render() {
