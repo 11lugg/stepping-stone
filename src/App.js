@@ -49,7 +49,13 @@ class App extends Component {
 
     return (
       <div className="App">
-        <SearchBox handleSearch={handleSearch} type="search" placeholder="Search Monsters..." className="search"/>
+        <h1 className="app-title">Monsters Rolodex</h1>
+        <SearchBox
+          handleSearch={handleSearch}
+          type="search"
+          placeholder="Search Monsters..."
+          className="search"
+        />
         <CardList filteredMonsters={filteredMonsters} />
       </div>
     );
