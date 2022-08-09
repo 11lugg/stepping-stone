@@ -2,7 +2,7 @@ import { useState } from "react";
 import {
   createAutUserWithEmailAndPassword,
   createUserDocumentFromAuth,
-} from "../../utils/firebase/firebase.utils";
+} from "utils/firebase/firebase.utils";
 
 const defaultFormFields = {
   displayName: "",
