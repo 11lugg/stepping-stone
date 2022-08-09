@@ -1,13 +1,15 @@
-import FormInput from "components/form-input/form-input.component";
 import { useState } from "react";
 import {
-  createAutUserWithEmailAndPassword,
+  createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "utils/firebase/firebase.utils";
+
+import FormInput from "components/form-input/form-input.component";
+import Button from "components/button/button.component";
+
 import "components/sign-up-form/sign-up-form.styles.scss";
 
-import { BUTTON_TYPE_CLASSES, FORM_NAMES } from "constants/constants";
-import Button from "components/button/button.component";
+import { FORM_NAMES } from "constants/constants";
 
 const defaultFormFields = {
   displayName: "",
@@ -29,7 +31,10 @@ const SignUpForm = () => {
     }
 
     try {
-      const { user } = await createAutUserWithEmailAndPassword(email, password);
+      const { user } = await createAuthUserWithEmailAndPassword(
+        email,
+        password
+      );
       await createUserDocumentFromAuth(user, { displayName });
       setFormFields(defaultFormFields);
       alert("Account successfully created");
