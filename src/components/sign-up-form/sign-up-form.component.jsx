@@ -1,8 +1,13 @@
+import FormInput from "components/form-input/form-input.component";
 import { useState } from "react";
 import {
   createAutUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "utils/firebase/firebase.utils";
+import "components/sign-up-form/sign-up-form.styles.scss";
+
+import { BUTTON_TYPE_CLASSES, FORM_NAMES } from "constants/constants";
+import Button from "components/button/button.component";
 
 const defaultFormFields = {
   displayName: "",
@@ -14,8 +19,6 @@ const defaultFormFields = {
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-
-  console.log(formFields);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,45 +48,43 @@ const SignUpForm = () => {
   };
 
   return (
-    <div>
-      <h1>Sign up with your email and password</h1>
+    <div className="sign-up-container">
+      <h2>Don't have an account?</h2>
+      <span>Sign up with your email and password</span>
       <form onSubmit={handleSubmit}>
-        <label>Display Name</label>
-        <input
+        <FormInput
+          label="Display Name"
           type="text"
           onChange={handleChange}
-          name="displayName"
+          name={FORM_NAMES.DISPLAY_NAME}
           value={displayName}
           required
         />
-
-        <label>Email</label>
-        <input
-          type="email"
+        <FormInput
+          label="Email"
+          type={FORM_NAMES.EMAIL}
           onChange={handleChange}
-          name="email"
+          name={FORM_NAMES.EMAIL}
           value={email}
           required
         />
-
-        <label>Password</label>
-        <input
-          type="password"
+        <FormInput
+          label="Password"
+          type={FORM_NAMES.PASSWORD}
           onChange={handleChange}
-          name="password"
+          name={FORM_NAMES.PASSWORD}
           value={password}
           required
         />
-
-        <label>Confirm Password</label>
-        <input
-          type="password"
+        <FormInput
+          label="Confirm Password"
+          type={FORM_NAMES.PASSWORD}
           onChange={handleChange}
-          name="confirmPassword"
+          name={FORM_NAMES.CONFIRM_PASSWORD}
           value={confirmPassword}
           required
         />
-        <button type="submit">Sign Up</button>
+        <Button type="submit">Sign Up</Button>
       </form>
     </div>
   );
