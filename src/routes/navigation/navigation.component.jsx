@@ -3,6 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import { ReactComponent as CrwnLogo } from "assets/crown.svg";
 
 import "routes/navigation/navigation.styles.scss";
+import { NAVIGATION_LINKS } from "constants/constants";
 
 const Navigation = () => {
   return (
@@ -13,10 +14,10 @@ const Navigation = () => {
         </Link>
         <div className="nav-links-container">
           <Link className="nav-link" to="/shop">
-            SHOP
+            {NAVIGATION_LINKS.SHOP.toLocaleUpperCase()}
           </Link>
           <Link className="nav-link" to="/auth">
-            SIGN IN
+            {NAVIGATION_LINKS.SIGN_IN.toLocaleUpperCase()}
           </Link>
         </div>
       </div>

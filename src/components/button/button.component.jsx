@@ -4,12 +4,7 @@ import { BUTTON_TYPE_CLASSES } from "constants/constants";
 
 const Button = ({ children, buttonType, ...otherProps }) => {
   return (
-    <button
-      className={`button-container ${
-        buttonType ? BUTTON_TYPE_CLASSES[buttonType] : ""
-      }`}
-      {...otherProps}
-    >
+    <button className={`button-container ${buttonType}`} {...otherProps}>
       {children}
     </button>
   );
