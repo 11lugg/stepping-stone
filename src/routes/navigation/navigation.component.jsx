@@ -1,20 +1,15 @@
 import { Link, Outlet } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "contexts/user.context";
+import { signOutUser } from "utils/firebase/firebase.utils";
 
 import { ReactComponent as CrwnLogo } from "assets/crown.svg";
 
 import "routes/navigation/navigation.styles.scss";
 import { NAVIGATION_LINKS } from "utils/constants/constants.js";
-import { useContext } from "react";
-import { UserContext } from "contexts/user.context";
-import { signOutUser } from "utils/firebase/firebase.utils";
 
 const Navigation = () => {
-  const { setCurrentUser, currentUser } = useContext(UserContext);
-
-  const signOutHandler = async () => {
-    const res = await signOutUser();
-    setCurrentUser(null);
-  };
+  const { currentUser } = useContext(UserContext);
 
   console.log(currentUser);
   return (
@@ -32,7 +27,7 @@ const Navigation = () => {
               {NAVIGATION_LINKS.SIGN_IN.toLocaleUpperCase()}
             </Link>
           ) : (
-            <span className="nav-link" onClick={signOutHandler}>
+            <span className="nav-link" onClick={signOutUser}>
               {NAVIGATION_LINKS.SIGN_OUT.toLocaleUpperCase()}
             </span>
           )}
