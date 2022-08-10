@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   signInAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
@@ -10,7 +10,8 @@ import Button from "components/button/button.component";
 
 import "components/sign-in-form/sign-in-form.styles.scss";
 
-import { BUTTON_TYPE_CLASSES, FORM_NAMES } from "constants/constants";
+import { BUTTON_TYPE_CLASSES, FORM_NAMES } from "utils/constants/constants.js";
+import { UserContext } from "contexts/user.context";
 
 const defaultFormFields = {
   email: "",
@@ -21,19 +22,25 @@ const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
+  const { setCurrentUser } = useContext(UserContext);
+
   const logGoogleUser = async () => {
     const { user } = await signInWithGooglePopup();
     const userDocRef = await createUserDocumentFromAuth(user);
+
+    setCurrentUser(user);
+    alert("login successful");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
+      setCurrentUser(user);
       setFormFields(defaultFormFields);
       alert("login successful");
     } catch (error) {

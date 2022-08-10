@@ -12,5 +12,6 @@ export const BUTTON_TYPE_CLASSES = {
 
 export const NAVIGATION_LINKS = {
   SHOP: "shop",
-  SIGN_IN: "sign-in",
+  SIGN_IN: "sign in",
+  SIGN_OUT: "sign out",
 };
