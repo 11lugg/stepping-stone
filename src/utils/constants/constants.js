@@ -15,3 +15,11 @@ export const NAVIGATION_LINKS = {
   SIGN_IN: "sign in",
   SIGN_OUT: "sign out",
 };
+
+export const CHECKOUT_HEADER = [
+  "Product",
+  "Description",
+  "Quantity",
+  "Price",
+  "Remove",
+];
