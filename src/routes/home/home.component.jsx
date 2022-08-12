@@ -14,7 +14,7 @@ const Home = () => {
     },
     {
       id: 3,
-      title: "trainers",
+      title: "sneakers",
       imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
     },
     {
