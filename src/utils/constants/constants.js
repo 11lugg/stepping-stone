@@ -6,6 +6,7 @@ export const FORM_NAMES = {
 };
 
 export const BUTTON_TYPE_CLASSES = {
+  BASE: "base",
   GOOGLE: "google-sign-in",
   INVERTED: "inverted",
 };

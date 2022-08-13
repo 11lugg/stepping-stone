@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "contexts/user.context";
 import { CartContext } from "contexts/cart.context";
@@ -7,7 +7,13 @@ import { signOutUser } from "utils/firebase/firebase.utils";
 import CartIcon from "components/cart-icon/cart-icon.component";
 import { ReactComponent as CrwnLogo } from "assets/crown.svg";
 
-import "routes/navigation/navigation.styles.scss";
+import {
+  NavigationContainer,
+  LogoContainer,
+  NavLinksContainer,
+  NavLink,
+} from "routes/navigation/navigation.styles";
+
 import { NAVIGATION_LINKS } from "utils/constants/constants.js";
 import CartDropdown from "components/cart-dropdown/cart-dropdown.component";
 
@@ -17,27 +23,27 @@ const Navigation = () => {
 
   return (
     <>
-      <div className="navigation">
-        <Link className="logo-container" to="/">
+      <NavigationContainer>
+        <LogoContainer to="/">
           <CrwnLogo className="logo" />
-        </Link>
-        <div className="nav-links-container">
-          <Link className="nav-link" to="/shop">
+        </LogoContainer>
+        <NavLinksContainer>
+          <NavLink to="/shop">
             {NAVIGATION_LINKS.SHOP.toLocaleUpperCase()}
-          </Link>
+          </NavLink>
           {!currentUser ? (
-            <Link className="nav-link" to="/auth">
+            <NavLink to="/auth">
               {NAVIGATION_LINKS.SIGN_IN.toLocaleUpperCase()}
-            </Link>
+            </NavLink>
           ) : (
-            <span className="nav-link" onClick={signOutUser}>
+            <NavLink as="span" onClick={signOutUser}>
               {NAVIGATION_LINKS.SIGN_OUT.toLocaleUpperCase()}
-            </span>
+            </NavLink>
           )}
           <CartIcon />
-        </div>
+        </NavLinksContainer>
         {isCartOpen && <CartDropdown />}
-      </div>
+      </NavigationContainer>
       <Outlet />
     </>
   );
