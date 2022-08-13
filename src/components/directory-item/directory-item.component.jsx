@@ -8,7 +8,6 @@ import {
 
 const DirectoryItem = ({ category }) => {
   const { title, imageUrl } = category;
-
   const navigate = useNavigate();
 
   const goToCategoryHandler = () => {
@@ -16,9 +15,9 @@ const DirectoryItem = ({ category }) => {
   };
 
   return (
-    <DirectoryItemContainer>
+    <DirectoryItemContainer onClick={goToCategoryHandler}>
       <BackgroundImage imageUrl={imageUrl} />
-      <Body onClick={goToCategoryHandler}>
+      <Body>
         <h2>{title}</h2>
         <p>Shop Now</p>
       </Body>
