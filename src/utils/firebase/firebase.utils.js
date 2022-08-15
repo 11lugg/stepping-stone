@@ -22,12 +22,12 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_API_ID,
+  apiKey: "AIzaSyAiS5Y6tTpbJtx3smKYLCtZ_AiHIMv2kLM",
+  authDomain: "stepping-stone-db-45281.firebaseapp.com",
+  projectId: "stepping-stone-db-45281",
+  storageBucket: "stepping-stone-db-45281.appspot.com",
+  messagingSenderId: "1020204423463",
+  appId: "1:1020204423463:web:e7632548f125c5ab767102",
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
