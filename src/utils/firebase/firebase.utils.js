@@ -18,7 +18,6 @@ import {
   setDoc,
   query,
   getDocs,
-  connectFirestoreEmulator,
 } from "firebase/firestore";
 
 const firebaseConfig = {
