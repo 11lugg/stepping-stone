@@ -16,7 +16,7 @@ This is a React project with a list of dependencies below:
 
 This isn't an exausted list. Please look at the package-lock.json file for all dependencies.
 
-This is a work in progress and there is additional functionality being added. Please check back frequently to see its progress. Below is a roadmap of upcoming tasks:
+This is a work in progress and there is additional functionality being added. Please check back frequently to see its progress. Below is a roadmap of upcoming tasks. Here is a link to all my current commits https://github.com/11lugg/stepping-stone/commits/main:
 
 - Migrating from Redux Thunk to Redux Saga to control the async actions more closely
 - Adding stipe api to take payments for products
