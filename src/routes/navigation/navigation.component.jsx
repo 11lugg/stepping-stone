@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
-import { signOutUser } from "utils/firebase/firebase.utils";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import CartIcon from "components/cart-icon/cart-icon.component";
 import { ReactComponent as CrwnLogo } from "assets/crown.svg";
@@ -18,9 +17,14 @@ import CartDropdown from "components/cart-dropdown/cart-dropdown.component";
 import { selectUser } from "store/user/user.selector";
 import { selectIsCartOpen } from "store/cart/cart.selector";
 
+import { signOutStart } from "store/user/user.action";
+
 const Navigation = () => {
+  const dispatch = useDispatch();
   const currentUser = useSelector(selectUser);
   const isCartOpen = useSelector(selectIsCartOpen);
+
+  const signOutUser = () => dispatch(signOutStart());
 
   return (
     <>
