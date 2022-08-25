@@ -14,7 +14,7 @@ This is a React project with a list of dependencies below:
 - Redux Persist (To persist state)
 - Firebase (handling authentication and firestore database)
 
-This isn't an exausted list. Please look at the package-lock.json file for all dependencies.
+This isn't an exaustive list. Please look at the package-lock.json file for all dependencies.
 
 This is a work in progress and there is additional functionality being added. Please check back frequently to see its progress. Below is a roadmap of upcoming tasks. Here is a link to all my current commits https://github.com/11lugg/stepping-stone/commits/main:
 
