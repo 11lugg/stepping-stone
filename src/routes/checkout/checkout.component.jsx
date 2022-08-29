@@ -9,6 +9,7 @@ import {
   Total,
 } from "routes/checkout/checkout.styles";
 import { selectCartItems, selectCartTotal } from "store/cart/cart.selector";
+import PaymentForm from "components/payment-form/payment-form.component";
 
 const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
@@ -30,6 +31,7 @@ const Checkout = () => {
       ))}
 
       <Total>Total: £{totalPrice}</Total>
+      <PaymentForm />
     </CheckoutContainer>
   );
 };
